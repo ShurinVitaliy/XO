@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84480FC82118DDBC00FFC607 /* SimptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FC72118DDBC00FFC607 /* SimptomViewController.swift */; };
+		84480FCA2118DDE300FFC607 /* SimptomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FC92118DDE300FFC607 /* SimptomViewModel.swift */; };
+		84480FCC2118DDFE00FFC607 /* SimptomViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FCB2118DDFE00FFC607 /* SimptomViewRouter.swift */; };
+		84480FCE2118DE2900FFC607 /* SimptomViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FCD2118DE2900FFC607 /* SimptomViewControllerAssembly.swift */; };
 		844BF5BA2097DE01001BE5F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5B92097DE01001BE5F0 /* AppDelegate.swift */; };
-		844BF5BC2097DE01001BE5F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5BB2097DE01001BE5F0 /* ViewController.swift */; };
 		844BF5BF2097DE01001BE5F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844BF5BD2097DE01001BE5F0 /* Main.storyboard */; };
-		844BF5C22097DE01001BE5F0 /* XO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5C02097DE01001BE5F0 /* XO.xcdatamodeld */; };
 		844BF5C42097DE02001BE5F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844BF5C32097DE02001BE5F0 /* Assets.xcassets */; };
-		844BF5C72097DE02001BE5F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844BF5C52097DE02001BE5F0 /* LaunchScreen.storyboard */; };
-		844BF5D22097DE02001BE5F0 /* XOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5D12097DE02001BE5F0 /* XOTests.swift */; };
-		844BF5DD2097DE02001BE5F0 /* XOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5DC2097DE02001BE5F0 /* XOUITests.swift */; };
+		844BF5EC2097E86E001BE5F0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5EB2097E86E001BE5F0 /* MainViewController.swift */; };
+		844BF5EE2097E893001BE5F0 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5ED2097E892001BE5F0 /* MainViewModel.swift */; };
+		844BF5F02097E8B8001BE5F0 /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5EF2097E8B8001BE5F0 /* MainViewRouter.swift */; };
+		844BF5F22097E8EE001BE5F0 /* MainViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5F12097E8EE001BE5F0 /* MainViewControllerAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +38,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84480FC72118DDBC00FFC607 /* SimptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomViewController.swift; sourceTree = "<group>"; };
+		84480FC92118DDE300FFC607 /* SimptomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomViewModel.swift; sourceTree = "<group>"; };
+		84480FCB2118DDFE00FFC607 /* SimptomViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomViewRouter.swift; sourceTree = "<group>"; };
+		84480FCD2118DE2900FFC607 /* SimptomViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomViewControllerAssembly.swift; sourceTree = "<group>"; };
 		844BF5B62097DE01001BE5F0 /* XO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844BF5B92097DE01001BE5F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		844BF5BB2097DE01001BE5F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		844BF5BE2097DE01001BE5F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		844BF5C12097DE01001BE5F0 /* XO.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XO.xcdatamodel; sourceTree = "<group>"; };
 		844BF5C32097DE02001BE5F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		844BF5C62097DE02001BE5F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		844BF5C82097DE02001BE5F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		844BF5CD2097DE02001BE5F0 /* XOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		844BF5D12097DE02001BE5F0 /* XOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOTests.swift; sourceTree = "<group>"; };
-		844BF5D32097DE02001BE5F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		844BF5D82097DE02001BE5F0 /* XOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		844BF5DC2097DE02001BE5F0 /* XOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOUITests.swift; sourceTree = "<group>"; };
-		844BF5DE2097DE02001BE5F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		844BF5EB2097E86E001BE5F0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		844BF5ED2097E892001BE5F0 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		844BF5EF2097E8B8001BE5F0 /* MainViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
+		844BF5F12097E8EE001BE5F0 /* MainViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,12 +80,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84480FC62118DD7700FFC607 /* Simptom */ = {
+			isa = PBXGroup;
+			children = (
+				84480FC72118DDBC00FFC607 /* SimptomViewController.swift */,
+				84480FC92118DDE300FFC607 /* SimptomViewModel.swift */,
+				84480FCB2118DDFE00FFC607 /* SimptomViewRouter.swift */,
+				84480FCD2118DE2900FFC607 /* SimptomViewControllerAssembly.swift */,
+			);
+			path = Simptom;
+			sourceTree = "<group>";
+		};
 		844BF5AD2097DE00001BE5F0 = {
 			isa = PBXGroup;
 			children = (
+				84480FC62118DD7700FFC607 /* Simptom */,
+				844BF5EA2097E817001BE5F0 /* Main */,
 				844BF5B82097DE01001BE5F0 /* XO */,
-				844BF5D02097DE02001BE5F0 /* XOTests */,
-				844BF5DB2097DE02001BE5F0 /* XOUITests */,
 				844BF5B72097DE01001BE5F0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,32 +115,22 @@
 			isa = PBXGroup;
 			children = (
 				844BF5B92097DE01001BE5F0 /* AppDelegate.swift */,
-				844BF5BB2097DE01001BE5F0 /* ViewController.swift */,
 				844BF5BD2097DE01001BE5F0 /* Main.storyboard */,
 				844BF5C32097DE02001BE5F0 /* Assets.xcassets */,
-				844BF5C52097DE02001BE5F0 /* LaunchScreen.storyboard */,
 				844BF5C82097DE02001BE5F0 /* Info.plist */,
-				844BF5C02097DE01001BE5F0 /* XO.xcdatamodeld */,
 			);
 			path = XO;
 			sourceTree = "<group>";
 		};
-		844BF5D02097DE02001BE5F0 /* XOTests */ = {
+		844BF5EA2097E817001BE5F0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				844BF5D12097DE02001BE5F0 /* XOTests.swift */,
-				844BF5D32097DE02001BE5F0 /* Info.plist */,
+				844BF5EB2097E86E001BE5F0 /* MainViewController.swift */,
+				844BF5ED2097E892001BE5F0 /* MainViewModel.swift */,
+				844BF5EF2097E8B8001BE5F0 /* MainViewRouter.swift */,
+				844BF5F12097E8EE001BE5F0 /* MainViewControllerAssembly.swift */,
 			);
-			path = XOTests;
-			sourceTree = "<group>";
-		};
-		844BF5DB2097DE02001BE5F0 /* XOUITests */ = {
-			isa = PBXGroup;
-			children = (
-				844BF5DC2097DE02001BE5F0 /* XOUITests.swift */,
-				844BF5DE2097DE02001BE5F0 /* Info.plist */,
-			);
-			path = XOUITests;
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +240,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844BF5C72097DE02001BE5F0 /* LaunchScreen.storyboard in Resources */,
 				844BF5C42097DE02001BE5F0 /* Assets.xcassets in Resources */,
 				844BF5BF2097DE01001BE5F0 /* Main.storyboard in Resources */,
 			);
@@ -262,9 +266,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844BF5BC2097DE01001BE5F0 /* ViewController.swift in Sources */,
-				844BF5C22097DE01001BE5F0 /* XO.xcdatamodeld in Sources */,
+				844BF5F22097E8EE001BE5F0 /* MainViewControllerAssembly.swift in Sources */,
+				84480FCE2118DE2900FFC607 /* SimptomViewControllerAssembly.swift in Sources */,
+				84480FCA2118DDE300FFC607 /* SimptomViewModel.swift in Sources */,
+				844BF5EE2097E893001BE5F0 /* MainViewModel.swift in Sources */,
+				844BF5F02097E8B8001BE5F0 /* MainViewRouter.swift in Sources */,
+				844BF5EC2097E86E001BE5F0 /* MainViewController.swift in Sources */,
+				84480FC82118DDBC00FFC607 /* SimptomViewController.swift in Sources */,
 				844BF5BA2097DE01001BE5F0 /* AppDelegate.swift in Sources */,
+				84480FCC2118DDFE00FFC607 /* SimptomViewRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844BF5D22097DE02001BE5F0 /* XOTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +289,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844BF5DD2097DE02001BE5F0 /* XOUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,14 +314,6 @@
 				844BF5BE2097DE01001BE5F0 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		844BF5C52097DE02001BE5F0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				844BF5C62097DE02001BE5F0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -556,19 +556,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		844BF5C02097DE01001BE5F0 /* XO.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				844BF5C12097DE01001BE5F0 /* XO.xcdatamodel */,
-			);
-			currentVersion = 844BF5C12097DE01001BE5F0 /* XO.xcdatamodel */;
-			path = XO.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 844BF5AE2097DE00001BE5F0 /* Project object */;
 }
