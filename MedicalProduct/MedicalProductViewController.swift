@@ -1,20 +1,20 @@
 //
-//  SimptomViewController.swift
+//  MedicalProductViewController.swift
 //  XO
 //
-//  Created by Admin on 06.08.2018.
+//  Created by Admin on 07.08.2018.
 //  Copyright © 2018 Admin. All rights reserved.
 //
 
 import UIKit
 
-class SimptomViewController: UIViewController {
+class MedicalProductViewController: UIViewController {
     
-    private var viewModel : SimptomViewModel?
-    private var tableview : UITableView!
+    private var viewModel : MedicalProductViewModel?
+    private var tableView : UITableView!
     private var searchBar : UISearchBar!
     
-    convenience init(viewModel: SimptomViewModel) {
+    convenience init(viewModel: MedicalProductViewModel) {
         self.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
     }
@@ -25,9 +25,7 @@ class SimptomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableview = createTableView()
-        view.addSubview(tableview)
-        setupNavigationBar()
+        
     }
     
     private func createTableView() -> UITableView {
@@ -37,21 +35,7 @@ class SimptomViewController: UIViewController {
         return tableView
     }
     
-      private func setupNavigationBar() {
-        searchBar = createSearchBar()
-        navigationItem.titleView = searchBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewSimptom))
-    }
     
-    private func createSearchBar() -> UISearchBar {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = viewModel?.placeholderText
-        return searchBar
-    }
-    
-    @objc private func addNewSimptom(_ sender: UIBarButtonItem) {
-        viewModel?.addNewItem()
-    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -59,7 +43,7 @@ class SimptomViewController: UIViewController {
 
 }
 
-extension SimptomViewController: UITableViewDataSource {
+extension MedicalProductViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -69,6 +53,3 @@ extension SimptomViewController: UITableViewDataSource {
         return cell
     }
 }
-
-
-

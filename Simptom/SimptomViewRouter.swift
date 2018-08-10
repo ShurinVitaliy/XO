@@ -14,4 +14,9 @@ class SimptomViewRouter {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
+    
+    func addNewItem(title: String, placeholder: String) {
+        let extensions = Extensions(navigationController: navigationController)
+        extensions.addNewItem(title: title, placeholder: placeholder)
+    }
 }

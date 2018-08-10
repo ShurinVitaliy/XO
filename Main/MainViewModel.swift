@@ -18,12 +18,14 @@ class MainViewModelImp: MainViewModel {
     
     private let router: MainViewRouter
     let placeholderText: String = "Search"
+    let alertTitle: String = "Add new simptom"
+    let alertPlaceholder: String = "New simptom name"
     
     init(router: MainViewRouter) {
         self.router = router
     }
     
     func addNewItem() {
-        router.addNewItem()
+        router.addNewItem(title: alertTitle, placeholder: alertPlaceholder)
     }
 }

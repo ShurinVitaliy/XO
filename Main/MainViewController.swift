@@ -29,13 +29,18 @@ class MainViewController: UIViewController {
         
         tableView = createTableView()
         view.addSubview(tableView)
-        setupNavigatinBar()
+        setupNavigationBar()
+        setupTabBar()
     }
     
-    private func setupNavigatinBar() {
+    private func setupNavigationBar() {
         searchBar = createSearchBar()
         navigationItem.titleView = searchBar
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewItem))
+    }
+    
+    private func setupTabBar() {
+        tabBar = createTabBar()
     }
     
     private func createTableView() -> UITableView {
@@ -49,6 +54,11 @@ class MainViewController: UIViewController {
         let searchBar = UISearchBar()
         searchBar.placeholder = viewModel?.placeholderText
         return searchBar
+    }
+    
+    private func createTabBar() -> UITabBar {
+        let tabBar = UITabBar()
+        return tabBar
     }
     
     @objc private func addNewItem(_ sender: UIBarButtonItem) {
