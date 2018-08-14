@@ -18,8 +18,8 @@ class MainViewModelImp: MainViewModel {
     
     private let router: MainViewRouter
     let placeholderText: String = "Search"
-    let alertTitle: String = "Add new simptom"
-    let alertPlaceholder: String = "New simptom name"
+    private let alertTitle: String = "Add new simptom"
+    private let alertPlaceholder: String = "New simptom name"
     
     init(router: MainViewRouter) {
         self.router = router

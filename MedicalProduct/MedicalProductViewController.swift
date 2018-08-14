@@ -25,7 +25,9 @@ class MedicalProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView = createTableView()
+        view.addSubview(tableView)
+        setupNavigationBar()
     }
     
     private func createTableView() -> UITableView {
@@ -35,7 +37,21 @@ class MedicalProductViewController: UIViewController {
         return tableView
     }
     
+    private func setupNavigationBar() {
+        searchBar = createSearchBar()
+        navigationItem.titleView = searchBar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewSimptom))
+    }
     
+    private func createSearchBar() -> UISearchBar {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = viewModel?.placeholderText
+        return searchBar
+    }
+    
+    @objc private func addNewSimptom(_ sender: UIBarButtonItem) {
+        viewModel?.addNewItem()
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

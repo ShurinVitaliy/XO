@@ -1,22 +1,18 @@
 //
-//  MedicalProductViewRouter.swift
+//  CreateAntibiotikViewRouter.swift
 //  XO
 //
-//  Created by Admin on 07.08.2018.
+//  Created by Admin on 13.08.2018.
 //  Copyright © 2018 Admin. All rights reserved.
 //
 
 import UIKit
 
-class MedicalProductViewRouter {
+class CreateAntibiotikViewRouter {
     
     private let navigationController: UINavigationController
     
-    init(navigationController: UINavigationController) {
+    init(navigationsController: UINavigationController) {
         self.navigationController = navigationController
-    }
-    
-    func addNewItem() {
-        
     }
 }

@@ -9,15 +9,21 @@
 import UIKit
 
 protocol MedicalProductViewModel {
-    
+    var placeholderText: String { get }
+    func addNewItem()
 }
 
 class MedicalProductViewModelImp: MedicalProductViewModel {
     
     private let router: MedicalProductViewRouter
+    let placeholderText: String = "Search"
     
     init(router: MedicalProductViewRouter) {
         self.router = router
+    }
+    
+    func addNewItem() {
+        router.addNewItem()
     }
 
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8432F2AE2121E7CA00890BD1 /* CreateAntibiotikViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432F2AD2121E7CA00890BD1 /* CreateAntibiotikViewController.swift */; };
+		8432F2B02121E99C00890BD1 /* CreateAntibiotikViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432F2AF2121E99C00890BD1 /* CreateAntibiotikViewModel.swift */; };
+		8432F2B22121E9C000890BD1 /* CreateAntibiotikViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432F2B12121E9C000890BD1 /* CreateAntibiotikViewRouter.swift */; };
+		8432F2B42121E9E700890BD1 /* CreateAntibiotikViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432F2B32121E9E700890BD1 /* CreateAntibiotikViewControllerAssembly.swift */; };
 		8435D8DC211BA11600A35C95 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435D8DB211BA11600A35C95 /* Data.swift */; };
 		84480FC82118DDBC00FFC607 /* SimptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FC72118DDBC00FFC607 /* SimptomViewController.swift */; };
 		84480FCA2118DDE300FFC607 /* SimptomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FC92118DDE300FFC607 /* SimptomViewModel.swift */; };
@@ -44,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8432F2AD2121E7CA00890BD1 /* CreateAntibiotikViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAntibiotikViewController.swift; sourceTree = "<group>"; };
+		8432F2AF2121E99C00890BD1 /* CreateAntibiotikViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAntibiotikViewModel.swift; sourceTree = "<group>"; };
+		8432F2B12121E9C000890BD1 /* CreateAntibiotikViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAntibiotikViewRouter.swift; sourceTree = "<group>"; };
+		8432F2B32121E9E700890BD1 /* CreateAntibiotikViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAntibiotikViewControllerAssembly.swift; sourceTree = "<group>"; };
 		8435D8DB211BA11600A35C95 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		84480FC72118DDBC00FFC607 /* SimptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomViewController.swift; sourceTree = "<group>"; };
 		84480FC92118DDE300FFC607 /* SimptomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomViewModel.swift; sourceTree = "<group>"; };
@@ -92,6 +100,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8432F2AC2121E75900890BD1 /* CreateAntibiotik */ = {
+			isa = PBXGroup;
+			children = (
+				8432F2AD2121E7CA00890BD1 /* CreateAntibiotikViewController.swift */,
+				8432F2AF2121E99C00890BD1 /* CreateAntibiotikViewModel.swift */,
+				8432F2B12121E9C000890BD1 /* CreateAntibiotikViewRouter.swift */,
+				8432F2B32121E9E700890BD1 /* CreateAntibiotikViewControllerAssembly.swift */,
+			);
+			path = CreateAntibiotik;
+			sourceTree = "<group>";
+		};
 		8435D8DA211BA0E600A35C95 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,8 +152,9 @@
 		844BF5AD2097DE00001BE5F0 = {
 			isa = PBXGroup;
 			children = (
-				8435D8DA211BA0E600A35C95 /* Data */,
 				84480FCF2119CF3100FFC607 /* Extensions */,
+				8435D8DA211BA0E600A35C95 /* Data */,
+				8432F2AC2121E75900890BD1 /* CreateAntibiotik */,
 				84480FD22119FD1100FFC607 /* MedicalProduct */,
 				84480FC62118DD7700FFC607 /* Simptom */,
 				844BF5EA2097E817001BE5F0 /* Main */,
@@ -310,16 +330,20 @@
 			files = (
 				844BF5F22097E8EE001BE5F0 /* MainViewControllerAssembly.swift in Sources */,
 				8435D8DC211BA11600A35C95 /* Data.swift in Sources */,
+				8432F2AE2121E7CA00890BD1 /* CreateAntibiotikViewController.swift in Sources */,
 				84480FCE2118DE2900FFC607 /* SimptomViewControllerAssembly.swift in Sources */,
 				84480FCA2118DDE300FFC607 /* SimptomViewModel.swift in Sources */,
 				844BF5EE2097E893001BE5F0 /* MainViewModel.swift in Sources */,
 				844BF5F02097E8B8001BE5F0 /* MainViewRouter.swift in Sources */,
 				84480FD4211A1FCD00FFC607 /* MedicalProductViewController.swift in Sources */,
+				8432F2B42121E9E700890BD1 /* CreateAntibiotikViewControllerAssembly.swift in Sources */,
 				84480FDA211A200E00FFC607 /* MedicalProductViewControllerAssembly.swift in Sources */,
 				84480FD6211A1FDA00FFC607 /* MedicalProductViewModel.swift in Sources */,
 				844BF5EC2097E86E001BE5F0 /* MainViewController.swift in Sources */,
 				84480FC82118DDBC00FFC607 /* SimptomViewController.swift in Sources */,
 				84480FD8211A1FF300FFC607 /* MedicalProductViewRouter.swift in Sources */,
+				8432F2B02121E99C00890BD1 /* CreateAntibiotikViewModel.swift in Sources */,
+				8432F2B22121E9C000890BD1 /* CreateAntibiotikViewRouter.swift in Sources */,
 				844BF5BA2097DE01001BE5F0 /* AppDelegate.swift in Sources */,
 				84480FCC2118DDFE00FFC607 /* SimptomViewRouter.swift in Sources */,
 				84480FD12119CF7800FFC607 /* Extensions.swift in Sources */,

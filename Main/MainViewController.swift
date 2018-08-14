@@ -31,6 +31,7 @@ class MainViewController: UIViewController {
         view.addSubview(tableView)
         setupNavigationBar()
         setupTabBar()
+        
     }
     
     private func setupNavigationBar() {
@@ -58,10 +59,12 @@ class MainViewController: UIViewController {
     
     private func createTabBar() -> UITabBar {
         let tabBar = UITabBar()
+        self.tabBarController?.tabBar.accessibilityElementsHidden = true
         return tabBar
     }
     
     @objc private func addNewItem(_ sender: UIBarButtonItem) {
+        
         viewModel?.addNewItem()
     }
     

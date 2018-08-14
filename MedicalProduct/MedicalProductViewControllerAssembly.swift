@@ -9,6 +9,7 @@
 import UIKit
 
 class MedicalProductViewControllerAssembly {
+    
     func createController() -> UIViewController {
         let controller = UINavigationController()
         let router = MedicalProductViewRouter(navigationController: controller)
