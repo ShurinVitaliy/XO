@@ -10,11 +10,10 @@ import UIKit
 
 class SimptomViewControllerAssembly {
     
-    func createController() -> UIViewController {
-        let controller = UINavigationController()
-        let router = SimptomViewRouter(navigationController: controller)
-        let model = SimptomViewModelImp(router: router)
-        controller.viewControllers = [SimptomViewController(viewModel: model)]
+    func createController(navigationController: UINavigationController, disease: Disease) -> UIViewController {
+        let router = SimptomViewRouter(navigationController: navigationController)
+        let model = SimptomViewModelImp(router: router, disease: disease)
+        let controller = SimptomViewController(viewModel: model)
         return controller
     }
 }

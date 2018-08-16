@@ -10,17 +10,21 @@ import UIKit
 
 class CreateAntibiotikViewController: UIViewController {
     
-    private let viewModel: CreateAntibiotikViewModel?
+    private var viewModel: CreateAntibiotikViewModel?
     private var tableView: UITableView!
-    private var addButton: UIButton!
     
-    convenience init(viewModel: MedicalProductViewModel) {
+    convenience init(viewModel: CreateAntibiotikViewModel) {
         self.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

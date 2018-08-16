@@ -12,7 +12,6 @@ class SimptomViewController: UIViewController {
     
     private var viewModel : SimptomViewModel?
     private var tableview : UITableView!
-    private var searchBar : UISearchBar!
     
     convenience init(viewModel: SimptomViewModel) {
         self.init(nibName: nil, bundle: nil)
@@ -25,9 +24,11 @@ class SimptomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableview = createTableView()
         view.addSubview(tableview)
         setupNavigationBar()
+        navigationItem.title = viewModel?.disease.name
     }
     
     private func createTableView() -> UITableView {
@@ -38,15 +39,7 @@ class SimptomViewController: UIViewController {
     }
     
       private func setupNavigationBar() {
-        searchBar = createSearchBar()
-        navigationItem.titleView = searchBar
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewSimptom))
-    }
-    
-    private func createSearchBar() -> UISearchBar {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = viewModel?.placeholderText
-        return searchBar
     }
     
     @objc private func addNewSimptom(_ sender: UIBarButtonItem) {

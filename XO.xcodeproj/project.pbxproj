@@ -16,7 +16,7 @@
 		84480FCA2118DDE300FFC607 /* SimptomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FC92118DDE300FFC607 /* SimptomViewModel.swift */; };
 		84480FCC2118DDFE00FFC607 /* SimptomViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FCB2118DDFE00FFC607 /* SimptomViewRouter.swift */; };
 		84480FCE2118DE2900FFC607 /* SimptomViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FCD2118DE2900FFC607 /* SimptomViewControllerAssembly.swift */; };
-		84480FD12119CF7800FFC607 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FD02119CF7800FFC607 /* Extensions.swift */; };
+		84480FD12119CF7800FFC607 /* CreateItemAllertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FD02119CF7800FFC607 /* CreateItemAllertController.swift */; };
 		84480FD4211A1FCD00FFC607 /* MedicalProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FD3211A1FCD00FFC607 /* MedicalProductViewController.swift */; };
 		84480FD6211A1FDA00FFC607 /* MedicalProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FD5211A1FDA00FFC607 /* MedicalProductViewModel.swift */; };
 		84480FD8211A1FF300FFC607 /* MedicalProductViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FD7211A1FF300FFC607 /* MedicalProductViewRouter.swift */; };
@@ -28,6 +28,10 @@
 		844BF5EE2097E893001BE5F0 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5ED2097E892001BE5F0 /* MainViewModel.swift */; };
 		844BF5F02097E8B8001BE5F0 /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5EF2097E8B8001BE5F0 /* MainViewRouter.swift */; };
 		844BF5F22097E8EE001BE5F0 /* MainViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5F12097E8EE001BE5F0 /* MainViewControllerAssembly.swift */; };
+		848A80EB2125D276003785BE /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A80EA2125D276003785BE /* Disease.swift */; };
+		848A80ED2125E92E003785BE /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A80EC2125E92E003785BE /* Symptom.swift */; };
+		84FA7F47212474AB00782DD5 /* CreateItemAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA7F46212474AB00782DD5 /* CreateItemAlertViewModel.swift */; };
+		84FA7F4921247A5000782DD5 /* CreateItemAlertControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA7F4821247A5000782DD5 /* CreateItemAlertControllerAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +61,7 @@
 		84480FC92118DDE300FFC607 /* SimptomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomViewModel.swift; sourceTree = "<group>"; };
 		84480FCB2118DDFE00FFC607 /* SimptomViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomViewRouter.swift; sourceTree = "<group>"; };
 		84480FCD2118DE2900FFC607 /* SimptomViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomViewControllerAssembly.swift; sourceTree = "<group>"; };
-		84480FD02119CF7800FFC607 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		84480FD02119CF7800FFC607 /* CreateItemAllertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemAllertController.swift; sourceTree = "<group>"; };
 		84480FD3211A1FCD00FFC607 /* MedicalProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProductViewController.swift; sourceTree = "<group>"; };
 		84480FD5211A1FDA00FFC607 /* MedicalProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProductViewModel.swift; sourceTree = "<group>"; };
 		84480FD7211A1FF300FFC607 /* MedicalProductViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProductViewRouter.swift; sourceTree = "<group>"; };
@@ -73,6 +77,10 @@
 		844BF5ED2097E892001BE5F0 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		844BF5EF2097E8B8001BE5F0 /* MainViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
 		844BF5F12097E8EE001BE5F0 /* MainViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerAssembly.swift; sourceTree = "<group>"; };
+		848A80EA2125D276003785BE /* Disease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disease.swift; sourceTree = "<group>"; };
+		848A80EC2125E92E003785BE /* Symptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symptom.swift; sourceTree = "<group>"; };
+		84FA7F46212474AB00782DD5 /* CreateItemAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemAlertViewModel.swift; sourceTree = "<group>"; };
+		84FA7F4821247A5000782DD5 /* CreateItemAlertControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemAlertControllerAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +141,9 @@
 		84480FCF2119CF3100FFC607 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				84480FD02119CF7800FFC607 /* Extensions.swift */,
+				84480FD02119CF7800FFC607 /* CreateItemAllertController.swift */,
+				84FA7F46212474AB00782DD5 /* CreateItemAlertViewModel.swift */,
+				84FA7F4821247A5000782DD5 /* CreateItemAlertControllerAssembly.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -152,6 +162,7 @@
 		844BF5AD2097DE00001BE5F0 = {
 			isa = PBXGroup;
 			children = (
+				848A80E92125D209003785BE /* Models */,
 				84480FCF2119CF3100FFC607 /* Extensions */,
 				8435D8DA211BA0E600A35C95 /* Data */,
 				8432F2AC2121E75900890BD1 /* CreateAntibiotik */,
@@ -193,6 +204,15 @@
 				844BF5F12097E8EE001BE5F0 /* MainViewControllerAssembly.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		848A80E92125D209003785BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				848A80EA2125D276003785BE /* Disease.swift */,
+				848A80EC2125E92E003785BE /* Symptom.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,21 +352,25 @@
 				8435D8DC211BA11600A35C95 /* Data.swift in Sources */,
 				8432F2AE2121E7CA00890BD1 /* CreateAntibiotikViewController.swift in Sources */,
 				84480FCE2118DE2900FFC607 /* SimptomViewControllerAssembly.swift in Sources */,
+				84FA7F47212474AB00782DD5 /* CreateItemAlertViewModel.swift in Sources */,
 				84480FCA2118DDE300FFC607 /* SimptomViewModel.swift in Sources */,
 				844BF5EE2097E893001BE5F0 /* MainViewModel.swift in Sources */,
+				848A80ED2125E92E003785BE /* Symptom.swift in Sources */,
 				844BF5F02097E8B8001BE5F0 /* MainViewRouter.swift in Sources */,
 				84480FD4211A1FCD00FFC607 /* MedicalProductViewController.swift in Sources */,
 				8432F2B42121E9E700890BD1 /* CreateAntibiotikViewControllerAssembly.swift in Sources */,
 				84480FDA211A200E00FFC607 /* MedicalProductViewControllerAssembly.swift in Sources */,
 				84480FD6211A1FDA00FFC607 /* MedicalProductViewModel.swift in Sources */,
+				848A80EB2125D276003785BE /* Disease.swift in Sources */,
 				844BF5EC2097E86E001BE5F0 /* MainViewController.swift in Sources */,
 				84480FC82118DDBC00FFC607 /* SimptomViewController.swift in Sources */,
 				84480FD8211A1FF300FFC607 /* MedicalProductViewRouter.swift in Sources */,
+				84FA7F4921247A5000782DD5 /* CreateItemAlertControllerAssembly.swift in Sources */,
 				8432F2B02121E99C00890BD1 /* CreateAntibiotikViewModel.swift in Sources */,
 				8432F2B22121E9C000890BD1 /* CreateAntibiotikViewRouter.swift in Sources */,
 				844BF5BA2097DE01001BE5F0 /* AppDelegate.swift in Sources */,
 				84480FCC2118DDFE00FFC607 /* SimptomViewRouter.swift in Sources */,
-				84480FD12119CF7800FFC607 /* Extensions.swift in Sources */,
+				84480FD12119CF7800FFC607 /* CreateItemAllertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import UIKit
 protocol SimptomViewModel {
     var placeholderText: String { get }
     func addNewItem()
-    
+    var disease: Disease { get }
 }
 
 class SimptomViewModelImp: SimptomViewModel {
@@ -20,12 +20,18 @@ class SimptomViewModelImp: SimptomViewModel {
     let placeholderText: String = "Search"
     let alertTitle: String = "Add new simptom"
     let alertPlaceholder: String = "New simptom name"
+    let disease: Disease
     
-    init(router: SimptomViewRouter) {
+    init(router: SimptomViewRouter, disease: Disease) {
         self.router = router
+        self.disease = disease
     }
     
     func addNewItem() {
-        router.addNewItem(title: alertTitle, placeholder: alertPlaceholder)
+        router.addNewItem(title: alertTitle, placeholder: alertPlaceholder, createItem: createItem)
+    }
+    
+    func createItem(title: String) {
+        disease.addNewSymptom(Symptom(name: title))
     }
 }

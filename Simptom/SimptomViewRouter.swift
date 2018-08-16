@@ -15,8 +15,15 @@ class SimptomViewRouter {
         self.navigationController = navigationController
     }
     
-    func addNewItem(title: String, placeholder: String) {
-        let extensions = Extensions(navigationController: navigationController)
-        extensions.addNewItem(title: title, placeholder: placeholder)
+    func addNewItem(title: String, placeholder: String, createItem: @escaping (String) -> Void) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { (action) in
+            createItem(alert.textFields?.first?.text ?? "")
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = placeholder
+        })
+        navigationController.present(alert, animated: true, completion: nil)
     }
 }

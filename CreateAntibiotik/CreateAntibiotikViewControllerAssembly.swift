@@ -10,10 +10,10 @@ import UIKit
 
 class CreateAntibiotikViewControllerAssembly {
     
-    func createController() -> UIViewController {
-        let controller = UINavigationController()
-        let router = CreateAntibiotikViewRouter(navigationsController: controller)
+    func createController(navigationController: UINavigationController) -> UIViewController {
+        let router = CreateAntibiotikViewRouter(navigationController: navigationController)
         let model = CreateAntibiotikViewModelImp(router: router)
-        controller.viewControllers = [CreateAntibiotikViewController(viewModel: model)]
+        let controller = CreateAntibiotikViewController(viewModel: model)
+        return controller
     }
 }

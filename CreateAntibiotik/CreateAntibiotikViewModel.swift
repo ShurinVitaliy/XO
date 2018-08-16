@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CreateAntibiotikViewModel {
-    
+    func addNewItem()
 }
 
 class CreateAntibiotikViewModelImp: CreateAntibiotikViewModel {
@@ -18,6 +18,9 @@ class CreateAntibiotikViewModelImp: CreateAntibiotikViewModel {
     
     init(router: CreateAntibiotikViewRouter) {
         self.router = router
+    }
+    
+    func addNewItem() {
     }
     
 }

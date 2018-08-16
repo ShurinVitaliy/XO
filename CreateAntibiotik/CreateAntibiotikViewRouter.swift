@@ -12,7 +12,7 @@ class CreateAntibiotikViewRouter {
     
     private let navigationController: UINavigationController
     
-    init(navigationsController: UINavigationController) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 }
