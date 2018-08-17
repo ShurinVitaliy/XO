@@ -12,6 +12,7 @@ class Disease {
     
     private(set) var name: String
     private var symptoms: [Symptom]
+    var countOfSymptoms: Int { return symptoms.count }
     
     init(name: String, symptoms: [Symptom]) {
         self.name = name
@@ -25,5 +26,9 @@ class Disease {
     
     func addNewSymptom(_ symptom: Symptom) {
         symptoms.append(symptom)
+    }
+    
+    func symptomForIndex(_ index: Int) -> Symptom {
+        return symptoms[index]
     }
 }

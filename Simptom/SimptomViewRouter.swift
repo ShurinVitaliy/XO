@@ -15,6 +15,12 @@ class SimptomViewRouter {
         self.navigationController = navigationController
     }
     
+    func showSymptomsOfDiesease(symptom: Symptom) {
+        let assembly = MedicalProductViewControllerAssembly()
+        let controller = assembly.createController(navigationController: navigationController, symptom: symptom)
+        navigationController.pushViewController(controller, animated: true)
+    }
+    
     func addNewItem(title: String, placeholder: String, createItem: @escaping (String) -> Void) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { (action) in

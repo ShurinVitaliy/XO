@@ -10,8 +10,10 @@ import UIKit
 
 protocol SimptomViewModel {
     var placeholderText: String { get }
-    func addNewItem()
+    func addNewItem(_ reloadData: @escaping () -> Void)
+    func createItem(title: String) -> Void
     var disease: Disease { get }
+    func didSelectRowAt(index: Int)
 }
 
 class SimptomViewModelImp: SimptomViewModel {
@@ -21,17 +23,25 @@ class SimptomViewModelImp: SimptomViewModel {
     let alertTitle: String = "Add new simptom"
     let alertPlaceholder: String = "New simptom name"
     let disease: Disease
+    private var reloadData: (() -> Void)?
     
     init(router: SimptomViewRouter, disease: Disease) {
         self.router = router
         self.disease = disease
     }
     
-    func addNewItem() {
+    func didSelectRowAt(index: Int) {
+        router.showSymptomsOfDiesease(symptom: disease.symptomForIndex(index))
+    }
+    
+    func addNewItem(_ reloadData: @escaping () -> Void) {
+        self.reloadData = reloadData
         router.addNewItem(title: alertTitle, placeholder: alertPlaceholder, createItem: createItem)
     }
     
     func createItem(title: String) {
         disease.addNewSymptom(Symptom(name: title))
+        guard let reloadData = reloadData else { return }
+        reloadData()
     }
 }

@@ -40,7 +40,7 @@ class MedicalProductViewController: UIViewController {
     private func setupNavigationBar() {
         searchBar = createSearchBar()
         navigationItem.titleView = searchBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewSimptom))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewItem))
     }
     
     private func createSearchBar() -> UISearchBar {
@@ -49,7 +49,7 @@ class MedicalProductViewController: UIViewController {
         return searchBar
     }
     
-    @objc private func addNewSimptom(_ sender: UIBarButtonItem) {
+    @objc private func addNewItem(_ sender: UIBarButtonItem) {
         viewModel?.addNewItem()
     }
     

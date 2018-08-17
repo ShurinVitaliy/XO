@@ -10,7 +10,7 @@ import UIKit
 
 class MedicalProductViewControllerAssembly {
     
-    func createController(navigationController: UINavigationController) -> UIViewController {
+    func createController(navigationController: UINavigationController,  symptom: Symptom) -> UIViewController {
         let router = MedicalProductViewRouter(navigationController: navigationController)
         let model = MedicalProductViewModelImp(router: router)
         let controller = MedicalProductViewController(viewModel: model)
