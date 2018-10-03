@@ -20,8 +20,8 @@ class MainViewModelImp: MainViewModel {
     
     private let router: MainViewRouter
     let placeholderText: String = "Search"
-    private let alertTitle: String = "Add new simptom"
-    private let alertPlaceholder: String = "New simptom name"
+    private let alertTitle: String = "Add new illness"
+    private let alertPlaceholder: String = "New illness name"
     private(set) var diseases = [Disease]()
     private var reloadData: (() -> Void)?
     

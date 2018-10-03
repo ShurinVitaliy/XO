@@ -11,8 +11,9 @@ import UIKit
 class MedicalProductViewController: UIViewController {
     
     private var viewModel : MedicalProductViewModel?
-    private var tableView : UITableView!
+    private var scrollView : UIScrollView!
     private var searchBar : UISearchBar!
+    private var medicalProductCards = [MedicalProductCardView]()
     
     convenience init(viewModel: MedicalProductViewModel) {
         self.init(nibName: nil, bundle: nil)
@@ -25,16 +26,32 @@ class MedicalProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView = createTableView()
-        view.addSubview(tableView)
+        scrollView = createScrollView()
+        view.addSubview(scrollView)
         setupNavigationBar()
     }
     
-    private func createTableView() -> UITableView {
-        let tableView = UITableView(frame: view.bounds)
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        return tableView
+    private func createScrollView() -> UIScrollView {
+        let scrollView = UIScrollView(frame: view.bounds)
+        for (index, card) in medicalProductCards.enumerated() {
+            card.translatesAutoresizingMaskIntoConstraints = false
+            scrollView.addSubview(card)
+            setupConstraintsForIndex(card: card, index: index)
+        }
+        return scrollView
+    }
+    
+    private func setupConstraintsForIndex(card: MedicalProductCardView, index: Int) {
+        card.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        card.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        if index == 0 {
+            card.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        } else {
+            card.topAnchor.constraint(equalTo: medicalProductCards[index - 1].bottomAnchor).isActive = true
+        }
+        if index == medicalProductCards.count - 1 {
+            card.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        }
     }
     
     private func setupNavigationBar() {
@@ -57,15 +74,4 @@ class MedicalProductViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-}
-
-extension MedicalProductViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        return cell
-    }
 }

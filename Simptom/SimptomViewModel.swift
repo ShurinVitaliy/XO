@@ -31,7 +31,7 @@ class SimptomViewModelImp: SimptomViewModel {
     }
     
     func didSelectRowAt(index: Int) {
-        router.showSymptomsOfDiesease(symptom: disease.symptomForIndex(index))
+        router.showMedicalProductOfSymptoms(symptom: disease.symptomForIndex(index))
     }
     
     func addNewItem(_ reloadData: @escaping () -> Void) {
