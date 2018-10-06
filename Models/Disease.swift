@@ -12,8 +12,7 @@ class Disease {
     
     private(set) var name: String
     private var symptoms: [Symptom]
-    var countOfSymptoms: Int { print(symptoms.count)
-        return symptoms.count }
+    var countOfSymptoms: Int { return symptoms.count }
     
     init(name: String, symptoms: [Symptom]) {
         self.name = name

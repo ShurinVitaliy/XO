@@ -26,6 +26,7 @@ class MedicalProductCardView: UIView {
         label = setupLabel(text: "Name")
         addSubview(label)
         setupConstraints()
+        backgroundColor = .red
     }
     
     private func setupImageView(image: UIImage?) -> UIImageView {

@@ -17,6 +17,9 @@ class MedicalProductViewRouter {
     }
     
     func addNewItem() {
-        
+        let router = AddCureAlertViewRouter(navigationController: navigationController)
+        let model = AddCuerAlertModelImp(router: router)
+        let controller = AddCureAlertView(viewModel: model)
+        navigationController.present(controller, animated: true, completion: nil)
     }
 }
