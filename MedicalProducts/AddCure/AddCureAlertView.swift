@@ -12,11 +12,9 @@ class AddCureAlertView: UIView {
     
     var viewModel: AddCuerAlertModel?
     
-    
-    init(viewModel: AddCuerAlertModel) {
-        super.init(frame: bounds) {
-            self.viewModel = viewModel
-        }
+    convenience init(viewModel: AddCuerAlertModel) {
+        self.init(viewModel: viewModel)
+        self.viewModel = viewModel
     }
     
     required init?(coder aDecoder: NSCoder) {
