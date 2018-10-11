@@ -39,6 +39,10 @@ class AddCureAlertView: UIView {
         setupView()
     }
     
+    init() {
+        super.init(frame: CGRect.zero)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         var path = UIBezierPath(roundedRect: cancelButton.bounds, byRoundingCorners: [.bottomLeft], cornerRadii: CGSize(width: layer.cornerRadius, height: layer.cornerRadius))
@@ -65,7 +69,7 @@ class AddCureAlertView: UIView {
         addSubview(textFieldPrice)
         textViewAbout = setupTextViewAbout()
         addSubview(textViewAbout)
-        photoImage = setupImage(image: nil)
+        photoImage = setupImage()
         addSubview(photoImage)
         setupConstraints()
     }
@@ -114,14 +118,22 @@ class AddCureAlertView: UIView {
         return textView
     }
     
-    private func setupImage(image: UIImage?) -> UIImageView {
+    private func setupImage() -> UIImageView {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 25
-        imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.image = image
+        imageView.image = #imageLiteral(resourceName: "defaultMedicalProductImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(pickImage)))
         return imageView
+    }
+    
+    @objc private func pickImage(sender: UITapGestureRecognizer) {
+        print("ok")
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        viewModel?.pickImage(imagePickerController: imagePickerController)
     }
     
     private func setupTextView(placeholder: String) -> UITextView {
@@ -179,3 +191,17 @@ class AddCureAlertView: UIView {
     }
 }
 
+extension AddCureAlertView: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("photo not found: \(info)")
+        }
+        photoImage.image = selectedImage
+        picker.dismiss(animated: true, completion: nil)
+    }
+}

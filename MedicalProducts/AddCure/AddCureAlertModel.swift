@@ -7,20 +7,27 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AddCuerAlertModel {
     var simptom: Symptom { get }
     var cancel: () -> Void { get }
+    func pickImage(imagePickerController: UIImagePickerController) -> Void
 }
 
 class AddCuerAlertModelImp: AddCuerAlertModel {
     
     let simptom: Symptom
     let cancel: () -> Void
+    let router: AddCureAlertViewRouter
     
-    
-    init(simptom: Symptom, cancel: @escaping () -> Void) {
+    init(router: AddCureAlertViewRouter, simptom: Symptom, cancel: @escaping () -> Void) {
         self.simptom = simptom
         self.cancel = cancel
+        self.router = router
+    }
+    
+    func pickImage(imagePickerController: UIImagePickerController) {
+        router.pickImage(imagePickerController: imagePickerController)
     }
 }

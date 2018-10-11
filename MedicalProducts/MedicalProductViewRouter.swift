@@ -16,9 +16,17 @@ class MedicalProductViewRouter {
         self.navigationController = navigationController
     }
     
-    func showCureCreator(symptom: Symptom, cancel: @escaping () -> Void) -> UIView {
-        let model = AddCuerAlertModelImp(simptom: symptom, cancel: cancel)
-        let view = AddCureAlertView(viewModel: model)
-        return view
+    func createAlertView(addButton: UIBarButtonItem, simptom: Symptom, yCoordinate: CGFloat) -> AddCureAlertView {
+        var cureAlertView = AddCureAlertView()
+            cureAlertView = AddCureAlertView(viewModel: AddCuerAlertModelImp(router: AddCureAlertViewRouter(navigationController: navigationController), simptom: simptom, cancel: {
+            UIView.animate(withDuration: 1, animations: {
+                cureAlertView.alpha = 0
+                cureAlertView.transform = CGAffineTransform(translationX: 0, y: yCoordinate)
+                }, completion: {(true) in
+                    cureAlertView.removeFromSuperview()
+                    addButton.isEnabled = true
+            })
+        }))
+        return cureAlertView
     }
 }

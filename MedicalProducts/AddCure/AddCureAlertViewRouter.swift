@@ -17,7 +17,7 @@ class AddCureAlertViewRouter {
         self.navigationController = navigationController
     }
     
-    func cancel() {
-        navigationController.dismiss(animated: true, completion: nil)
+    func pickImage(imagePickerController: UIImagePickerController) {
+        navigationController.present(imagePickerController, animated: true, completion: nil)
     }
 }

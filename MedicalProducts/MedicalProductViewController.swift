@@ -81,16 +81,8 @@ class MedicalProductViewController: UIViewController {
     @objc private func showCureCreator(_ sender: UIBarButtonItem) {
     
         sender.isEnabled = false
+        cureAlertView = viewModel?.createAlertView(addButton: sender, yCoordinate: -view.bounds.maxY)
         
-        cureAlertView = AddCureAlertView(viewModel: AddCuerAlertModelImp(simptom: (viewModel?.simptom)!, cancel: { [weak self] in
-            UIView.animate(withDuration: 1, animations: {[weak self] in
-                self?.cureAlertView.alpha = 0
-                self?.cureAlertView.transform = CGAffineTransform(translationX: 0, y: -(self?.view.bounds.maxY)!)
-                }, completion: { [weak self] (true) in
-                    self?.cureAlertView.removeFromSuperview()
-                    sender.isEnabled = true
-            })
-        }))
         cureAlertView.backgroundColor = UIColor(named: "LightGrayCustom")
         cureAlertView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(cureAlertView)
@@ -111,48 +103,6 @@ class MedicalProductViewController: UIViewController {
             self?.cureAlertView.transform = CGAffineTransform(translationX: 0, y: 0)
         })
         
-        //cureAlertView.removeFromSuperview()
-        
-        /*
-        let alertView  = UIView(frame: view.bounds)
-        alertView.backgroundColor = UIColor(named: "LightGrayCustom")
-        alertView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(alertView)
-        
-        alertView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 36).isActive = true
-        alertView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -36).isActive = true
-        alertView.topAnchor.constraint(equalTo: view.topAnchor, constant: 140).isActive = true
-        alertView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -72).isActive = true
-        
-        alertView.layer.cornerRadius = 25
-        
-        alertView.transform = CGAffineTransform(translationX: 0, y: -alertView.bounds.height)
-        alertView.alpha = 0
-        UIView.animate(withDuration: 1, animations: {
-            alertView.alpha = 1
-            alertView.transform = CGAffineTransform(translationX: 0, y: 0)
-        })
-        cancelButton = UIButton()        
-        
-        cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.layer.borderColor = UIColor.blue.cgColor
-        cancelButton.layer.borderWidth = 1
-        cancelButton.setTitleColor(.blue, for: .normal)
-        
-        cancelButton.translatesAutoresizingMaskIntoConstraints = false
-    
-        alertView.addSubview(cancelButton)
-        
-        cancelButton.leadingAnchor.constraint(equalTo: alertView.leadingAnchor).isActive = true
-        cancelButton.bottomAnchor.constraint(equalTo: alertView.bottomAnchor).isActive = true
-        cancelButton.widthAnchor.constraint(equalTo: alertView.widthAnchor, multiplier: 1/2).isActive = true
-        
-        
-       
-        let path = UIBezierPath(roundedRect: cancelButton.bounds, byRoundingCorners: [.bottomLeft], cornerRadii: CGSize(width: 25, height: 25))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        cancelButton.layer.mask = mask*/
     }
     
     required init?(coder aDecoder: NSCoder) {
