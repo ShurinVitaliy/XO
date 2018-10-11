@@ -18,7 +18,6 @@ class AddCureAlertViewRouter {
     }
     
     func cancel() {
-        print("click")
         navigationController.dismiss(animated: true, completion: nil)
     }
 }

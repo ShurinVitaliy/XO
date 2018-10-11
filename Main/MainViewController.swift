@@ -34,7 +34,7 @@ class MainViewController: UIViewController {
     private func setupNavigationBar() {
         searchBar = createSearchBar()
         navigationItem.titleView = searchBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewItem))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showCureCreator))
     }
    
     private func createTableView() -> UITableView {
@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
         return searchBar
     }
     
-    @objc private func addNewItem(_ sender: UIBarButtonItem) {
+    @objc private func showCureCreator(_ sender: UIBarButtonItem) {
         viewModel?.addNewItem({ [weak self] in
             self?.tableView.reloadData()
         })

@@ -10,7 +10,6 @@ import UIKit
 
 protocol MedicalProductViewModel {
     var placeholderText: String { get }
-    func addNewItem()
     var simptom: Symptom { get }
 }
 
@@ -24,9 +23,4 @@ class MedicalProductViewModelImp: MedicalProductViewModel {
         self.router = router
         self.simptom = simptom
     }
-    
-    func addNewItem() {
-        router.addNewItem()
-    }
-
 }

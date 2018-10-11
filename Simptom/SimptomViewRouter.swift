@@ -26,6 +26,7 @@ class SimptomViewRouter {
         alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { (action) in
             createItem(alert.textFields?.first?.text ?? "")
         }))
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alert.addTextField(configurationHandler: { (textField) in
             textField.placeholder = placeholder

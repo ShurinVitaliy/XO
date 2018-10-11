@@ -15,6 +15,7 @@ class MedicalProductViewController: UIViewController {
     private var searchBar : UISearchBar!
     private var medicalProductCards = [MedicalProductCardView]()
     private var cancelButton: UIButton!
+    private var cureAlertView: AddCureAlertView!
     
     convenience init(viewModel: MedicalProductViewModel) {
         self.init(nibName: nil, bundle: nil)
@@ -24,6 +25,8 @@ class MedicalProductViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
+    
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +69,7 @@ class MedicalProductViewController: UIViewController {
         searchBar = createSearchBar()
         navigationItem.backBarButtonItem?.title = viewModel?.simptom.name
         navigationItem.titleView = searchBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewItem))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showCureCreator))
     }
     
     private func createSearchBar() -> UISearchBar {
@@ -75,8 +78,42 @@ class MedicalProductViewController: UIViewController {
         return searchBar
     }
     
-    @objc private func addNewItem(_ sender: UIBarButtonItem) {
-        //viewModel?.addNewItem()
+    @objc private func showCureCreator(_ sender: UIBarButtonItem) {
+    
+        sender.isEnabled = false
+        
+        cureAlertView = AddCureAlertView(viewModel: AddCuerAlertModelImp(simptom: (viewModel?.simptom)!, cancel: { [weak self] in
+            UIView.animate(withDuration: 1, animations: {[weak self] in
+                self?.cureAlertView.alpha = 0
+                self?.cureAlertView.transform = CGAffineTransform(translationX: 0, y: -(self?.view.bounds.maxY)!)
+                }, completion: { [weak self] (true) in
+                    self?.cureAlertView.removeFromSuperview()
+                    sender.isEnabled = true
+            })
+        }))
+        cureAlertView.backgroundColor = UIColor(named: "LightGrayCustom")
+        cureAlertView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(cureAlertView)
+        
+        
+        
+        cureAlertView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 36).isActive = true
+        cureAlertView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -36).isActive = true
+        cureAlertView.topAnchor.constraint(equalTo: view.topAnchor, constant: 140).isActive = true
+        cureAlertView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -72).isActive = true
+        
+        cureAlertView.layer.cornerRadius = 25
+        
+        cureAlertView.transform = CGAffineTransform(translationX: 0, y: -view.bounds.maxY)
+        cureAlertView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {[weak self] in
+            self?.cureAlertView.alpha = 1
+            self?.cureAlertView.transform = CGAffineTransform(translationX: 0, y: 0)
+        })
+        
+        //cureAlertView.removeFromSuperview()
+        
+        /*
         let alertView  = UIView(frame: view.bounds)
         alertView.backgroundColor = UIColor(named: "LightGrayCustom")
         alertView.translatesAutoresizingMaskIntoConstraints = false
@@ -111,11 +148,11 @@ class MedicalProductViewController: UIViewController {
         cancelButton.widthAnchor.constraint(equalTo: alertView.widthAnchor, multiplier: 1/2).isActive = true
         
         
-        
+       
         let path = UIBezierPath(roundedRect: cancelButton.bounds, byRoundingCorners: [.bottomLeft], cornerRadii: CGSize(width: 25, height: 25))
         let mask = CAShapeLayer()
         mask.path = path.cgPath
-        cancelButton.layer.mask = mask
+        cancelButton.layer.mask = mask*/
     }
     
     required init?(coder aDecoder: NSCoder) {

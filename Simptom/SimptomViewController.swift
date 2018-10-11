@@ -41,10 +41,10 @@ class SimptomViewController: UIViewController {
     }
     
       private func setupNavigationBar() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewItem))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showCureCreator))
     }
     
-    @objc private func addNewItem(_ sender: UIBarButtonItem) {
+    @objc private func showCureCreator(_ sender: UIBarButtonItem) {
         viewModel?.addNewItem({ [weak self] in
             self?.tableview.reloadData()
         })

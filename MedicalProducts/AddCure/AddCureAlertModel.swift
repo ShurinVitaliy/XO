@@ -9,18 +9,18 @@
 import Foundation
 
 protocol AddCuerAlertModel {
-    func cancel()
+    var simptom: Symptom { get }
+    var cancel: () -> Void { get }
 }
 
 class AddCuerAlertModelImp: AddCuerAlertModel {
     
-    var router: AddCureAlertViewRouter
+    let simptom: Symptom
+    let cancel: () -> Void
     
-    init(router: AddCureAlertViewRouter) {
-        self.router = router
-    }
     
-    func cancel() {
-        router.cancel()
+    init(simptom: Symptom, cancel: @escaping () -> Void) {
+        self.simptom = simptom
+        self.cancel = cancel
     }
 }

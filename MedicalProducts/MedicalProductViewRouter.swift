@@ -16,10 +16,9 @@ class MedicalProductViewRouter {
         self.navigationController = navigationController
     }
     
-    func addNewItem() {
-        let router = AddCureAlertViewRouter(navigationController: navigationController)
-        let model = AddCuerAlertModelImp(router: router)
-        let controller = AddCureAlertView(viewModel: model)
-        navigationController.present(controller, animated: true, completion: nil)
+    func showCureCreator(symptom: Symptom, cancel: @escaping () -> Void) -> UIView {
+        let model = AddCuerAlertModelImp(simptom: symptom, cancel: cancel)
+        let view = AddCureAlertView(viewModel: model)
+        return view
     }
 }
