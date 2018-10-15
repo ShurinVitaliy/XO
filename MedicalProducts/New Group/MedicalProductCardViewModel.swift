@@ -2,16 +2,21 @@
 //  MedicalProductCardViewModel.swift
 //  XO
 //
-//  Created by Admin on 17.08.2018.
+//  Created by Admin on 15.10.2018.
 //  Copyright © 2018 Admin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol MedicalProductCardViewModel {
-    
+    var medicalProduct: MedicalProduct { get }
 }
 
 class MedicalProductCardViewModelImp: MedicalProductCardViewModel {
+    let medicalProduct: MedicalProduct
+    
+    init(medicalProduct: MedicalProduct) {
+        self.medicalProduct = medicalProduct
+    }
     
 }

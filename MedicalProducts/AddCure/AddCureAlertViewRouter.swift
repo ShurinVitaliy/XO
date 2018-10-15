@@ -20,4 +20,10 @@ class AddCureAlertViewRouter {
     func pickImage(imagePickerController: UIImagePickerController) {
         navigationController.present(imagePickerController, animated: true, completion: nil)
     }
+    
+    func alertWarning() {
+        let alert = UIAlertController(title: "WARNING", message: "XD", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        navigationController.present(alert, animated: true, completion: nil)
+    }
 }

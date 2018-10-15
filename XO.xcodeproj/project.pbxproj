@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		84240C01212716B800D0FD19 /* MedicalProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84240C00212716B800D0FD19 /* MedicalProduct.swift */; };
 		84240C0421272A3E00D0FD19 /* MedicalProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84240C0321272A3E00D0FD19 /* MedicalProductCardView.swift */; };
-		84240C0621272A5400D0FD19 /* MedicalProductCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84240C0521272A5400D0FD19 /* MedicalProductCardViewModel.swift */; };
-		84240C0821272A6E00D0FD19 /* MedicalProductCardViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84240C0721272A6E00D0FD19 /* MedicalProductCardViewAssembly.swift */; };
 		84480FC82118DDBC00FFC607 /* SimptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FC72118DDBC00FFC607 /* SimptomViewController.swift */; };
 		84480FCA2118DDE300FFC607 /* SimptomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FC92118DDE300FFC607 /* SimptomViewModel.swift */; };
 		84480FCC2118DDFE00FFC607 /* SimptomViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84480FCB2118DDFE00FFC607 /* SimptomViewRouter.swift */; };
@@ -27,6 +25,7 @@
 		844BF5F02097E8B8001BE5F0 /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5EF2097E8B8001BE5F0 /* MainViewRouter.swift */; };
 		844BF5F22097E8EE001BE5F0 /* MainViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF5F12097E8EE001BE5F0 /* MainViewControllerAssembly.swift */; };
 		844CA8592166830F00F4A428 /* AddCureAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CA8582166830F00F4A428 /* AddCureAlertModel.swift */; };
+		84589D192174BEE5001A5B2B /* MedicalProductCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84589D182174BEE5001A5B2B /* MedicalProductCardViewModel.swift */; };
 		848A80EB2125D276003785BE /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A80EA2125D276003785BE /* Disease.swift */; };
 		848A80ED2125E92E003785BE /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A80EC2125E92E003785BE /* Symptom.swift */; };
 		84AD152921653F0200E1FD30 /* AddCureAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD152821653F0200E1FD30 /* AddCureAlertView.swift */; };
@@ -53,8 +52,6 @@
 /* Begin PBXFileReference section */
 		84240C00212716B800D0FD19 /* MedicalProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProduct.swift; sourceTree = "<group>"; };
 		84240C0321272A3E00D0FD19 /* MedicalProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProductCardView.swift; sourceTree = "<group>"; };
-		84240C0521272A5400D0FD19 /* MedicalProductCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProductCardViewModel.swift; sourceTree = "<group>"; };
-		84240C0721272A6E00D0FD19 /* MedicalProductCardViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProductCardViewAssembly.swift; sourceTree = "<group>"; };
 		84480FC72118DDBC00FFC607 /* SimptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomViewController.swift; sourceTree = "<group>"; };
 		84480FC92118DDE300FFC607 /* SimptomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomViewModel.swift; sourceTree = "<group>"; };
 		84480FCB2118DDFE00FFC607 /* SimptomViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomViewRouter.swift; sourceTree = "<group>"; };
@@ -75,6 +72,7 @@
 		844BF5EF2097E8B8001BE5F0 /* MainViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
 		844BF5F12097E8EE001BE5F0 /* MainViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerAssembly.swift; sourceTree = "<group>"; };
 		844CA8582166830F00F4A428 /* AddCureAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCureAlertModel.swift; sourceTree = "<group>"; };
+		84589D182174BEE5001A5B2B /* MedicalProductCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProductCardViewModel.swift; sourceTree = "<group>"; };
 		848A80EA2125D276003785BE /* Disease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disease.swift; sourceTree = "<group>"; };
 		848A80EC2125E92E003785BE /* Symptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symptom.swift; sourceTree = "<group>"; };
 		84AD152821653F0200E1FD30 /* AddCureAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCureAlertView.swift; sourceTree = "<group>"; };
@@ -110,8 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				84240C0321272A3E00D0FD19 /* MedicalProductCardView.swift */,
-				84240C0521272A5400D0FD19 /* MedicalProductCardViewModel.swift */,
-				84240C0721272A6E00D0FD19 /* MedicalProductCardViewAssembly.swift */,
+				84589D182174BEE5001A5B2B /* MedicalProductCardViewModel.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -347,8 +344,6 @@
 				848A80ED2125E92E003785BE /* Symptom.swift in Sources */,
 				844BF5F02097E8B8001BE5F0 /* MainViewRouter.swift in Sources */,
 				84480FD4211A1FCD00FFC607 /* MedicalProductViewController.swift in Sources */,
-				84240C0821272A6E00D0FD19 /* MedicalProductCardViewAssembly.swift in Sources */,
-				84240C0621272A5400D0FD19 /* MedicalProductCardViewModel.swift in Sources */,
 				84480FDA211A200E00FFC607 /* MedicalProductViewControllerAssembly.swift in Sources */,
 				84480FD6211A1FDA00FFC607 /* MedicalProductViewModel.swift in Sources */,
 				848A80EB2125D276003785BE /* Disease.swift in Sources */,
@@ -356,6 +351,7 @@
 				84480FC82118DDBC00FFC607 /* SimptomViewController.swift in Sources */,
 				84480FD8211A1FF300FFC607 /* MedicalProductViewRouter.swift in Sources */,
 				84FA107121692198002628A9 /* AddCureAlertViewRouter.swift in Sources */,
+				84589D192174BEE5001A5B2B /* MedicalProductCardViewModel.swift in Sources */,
 				84240C01212716B800D0FD19 /* MedicalProduct.swift in Sources */,
 				844BF5BA2097DE01001BE5F0 /* AppDelegate.swift in Sources */,
 				84480FCC2118DDFE00FFC607 /* SimptomViewRouter.swift in Sources */,

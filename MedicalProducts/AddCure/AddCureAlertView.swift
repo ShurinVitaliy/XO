@@ -179,7 +179,12 @@ class AddCureAlertView: UIView {
     }
     
     @objc private func save(_ sender: UIButton) {
-        viewModel?.cancel()
+        if !(textFieldName.text?.isEmpty)! && !(textFieldCountry.text?.isEmpty)! {
+            viewModel?.createNewMedicalProduct(photo: photoImage.image!, name: textFieldName.text!, country: textFieldCountry.text!, price: textFieldPrice.text, about: textViewAbout.text)
+        } else {
+            viewModel?.alertWarning()
+        }
+        
     }
     
     @objc private func cancel(_ sender: UIButton) {

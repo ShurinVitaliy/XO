@@ -26,8 +26,6 @@ class MedicalProductViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView = createScrollView()
@@ -43,6 +41,7 @@ class MedicalProductViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .gray
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
         for (index, card) in medicalProductCards.enumerated() {
             card.translatesAutoresizingMaskIntoConstraints = false
             scrollView.addSubview(card)
@@ -51,16 +50,22 @@ class MedicalProductViewController: UIViewController {
         return scrollView
     }
     
-    private func setupConstraintsForIndex(card: MedicalProductCardView, index: Int) {
+    private func setupConstraintsForIndex(card: MedicalProductCardView, index: Int, isNew: Bool = false) {
         card.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
         card.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        card.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         card.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 1/3).isActive = true
         if index == 0 {
             card.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         } else {
             card.topAnchor.constraint(equalTo: medicalProductCards[index - 1].bottomAnchor, constant: 8).isActive = true
         }
+        if isNew && medicalProductCards.count - 1 > 0 {
+            medicalProductCards[index - 1].bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = false
+            medicalProductCards[index - 1].bottomAnchor.constraint(equalTo: card.topAnchor, constant: -8).isActive = true
+        }
         if index == medicalProductCards.count - 1 {
+            //not ok
             card.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         }
     }
@@ -78,10 +83,20 @@ class MedicalProductViewController: UIViewController {
         return searchBar
     }
     
+    private func addCardToView(_ medicalProductCard: MedicalProductCardView) {
+        medicalProductCard.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(medicalProductCard)
+        medicalProductCards.append(medicalProductCard)
+        setupConstraintsForIndex(card: medicalProductCard, index: medicalProductCards.count - 1, isNew: true)
+    }
+    
     @objc private func showCureCreator(_ sender: UIBarButtonItem) {
     
         sender.isEnabled = false
-        cureAlertView = viewModel?.createAlertView(addButton: sender, yCoordinate: -view.bounds.maxY)
+        cureAlertView = viewModel?.createAlertView(addButton: sender, yCoordinate: -view.bounds.maxY, addMedProd: { [weak self] (result) in
+            let medicalProductCard = MedicalProductCardView(viewModel: MedicalProductCardViewModelImp(medicalProduct: result.last))
+            self?.addCardToView(medicalProductCard)
+        })
         
         cureAlertView.backgroundColor = UIColor(named: "LightGrayCustom")
         cureAlertView.translatesAutoresizingMaskIntoConstraints = false

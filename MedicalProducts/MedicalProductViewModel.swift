@@ -11,7 +11,7 @@ import UIKit
 protocol MedicalProductViewModel {
     var placeholderText: String { get }
     var simptom: Symptom { get }
-    func createAlertView(addButton: UIBarButtonItem, yCoordinate: CGFloat) -> AddCureAlertView
+    func createAlertView(addButton: UIBarButtonItem, yCoordinate: CGFloat, addMedProd: @escaping (Symptom) -> Void) -> AddCureAlertView
 }
 
 class MedicalProductViewModelImp: MedicalProductViewModel {
@@ -25,7 +25,7 @@ class MedicalProductViewModelImp: MedicalProductViewModel {
         self.simptom = simptom
     }
     
-    func createAlertView(addButton: UIBarButtonItem, yCoordinate: CGFloat) -> AddCureAlertView {
-        return router.createAlertView(addButton: addButton, simptom: simptom, yCoordinate: yCoordinate)
+    func createAlertView(addButton: UIBarButtonItem, yCoordinate: CGFloat, addMedProd: @escaping (Symptom) -> Void) -> AddCureAlertView {
+        return router.createAlertView(addButton: addButton, simptom: simptom, yCoordinate: yCoordinate, addMedProd: addMedProd)
     }
 }

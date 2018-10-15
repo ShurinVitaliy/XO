@@ -8,29 +8,20 @@
 
 import UIKit
 
-struct Discription {
-    
-    var country: String
-    var about: String?
-    var price: Int
-    
-    init(country: String, about: String?, price: Int) {
-        self.country = country
-        self.about = about
-        self.price = price
-    }
-}
-
 class MedicalProduct {
     
+    private(set) var photo: UIImage
     private(set) var name: String
-    private(set) var photo: UIImage?
-    private(set) var discription: Discription
+    private(set) var country: String
+    private(set) var price: String?
+    private(set) var about: String?
     
-    init(name: String, photo: UIImage?, discription: Discription) {
-        self.name = name
+    init(photo: UIImage, name: String, country: String, price: String?, about: String?) {
         self.photo = photo
-        self.discription = discription
+        self.name = name
+        self.country = country
+        self.price = price
+        self.about = about
     }
 }
 

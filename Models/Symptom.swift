@@ -12,6 +12,11 @@ class Symptom {
     
     private(set) var name: String
     private var medicalProducts: [MedicalProduct]
+    var countOfMedicalProduct: Int {return medicalProducts.count}
+    
+    var last: MedicalProduct {
+        return medicalProducts.last!
+    }
     
     init(name: String, medicalProducts: [MedicalProduct]) {
         self.name = name
@@ -23,5 +28,12 @@ class Symptom {
         self.medicalProducts = [MedicalProduct]()
     }
     
+    func addNewMedicalProduct(medicalProduct: MedicalProduct) {
+        medicalProducts.append(medicalProduct)
+    }
+    
+    func medicalProductForIndex(_ index: Int) -> MedicalProduct {
+        return medicalProducts[index]
+    }
     
 }
