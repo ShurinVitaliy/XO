@@ -16,12 +16,13 @@ class MedicalProductViewRouter {
         self.navigationController = navigationController
     }
     
-    func createAlertView(addButton: UIBarButtonItem, simptom: Symptom, yCoordinate: CGFloat, addMedProd: @escaping (Symptom) -> Void) -> AddCureAlertView {
+    func createAlertView(view: UIScrollView, addButton: UIBarButtonItem, simptom: Symptom, yCoordinate: CGFloat, addMedProd: @escaping (Symptom) -> Void) -> AddCureAlertView {
         var cureAlertView = AddCureAlertView()
             cureAlertView = AddCureAlertView(viewModel: AddCuerAlertModelImp(router: AddCureAlertViewRouter(navigationController: navigationController), simptom: simptom, cancel: {
             UIView.animate(withDuration: 1, animations: {
                 cureAlertView.alpha = 0
                 cureAlertView.transform = CGAffineTransform(translationX: 0, y: yCoordinate)
+                view.alpha = 1
                 }, completion: {(true) in
                     cureAlertView.removeFromSuperview()
                     addButton.isEnabled = true
@@ -31,11 +32,18 @@ class MedicalProductViewRouter {
                 UIView.animate(withDuration: 1, animations: {
                     cureAlertView.alpha = 0
                     cureAlertView.transform = CGAffineTransform(translationX: 0, y: -yCoordinate)
+                    view.alpha = 1
                 }, completion: {(true) in
                     cureAlertView.removeFromSuperview()
                     addButton.isEnabled = true
-            })}
-            ))
+            })},
+                 edit: { (result) in
+                    
+                    
+            }
+            ), editFlag: false)
         return cureAlertView
     }
+    
+  //  func editMedicalProduct(view: UIScrollView, addButton: UIBarButtonItem, simptom: Symptom)
 }

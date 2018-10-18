@@ -16,22 +16,37 @@ class MedicalProductCardView: UIView {
     private var labelName: UILabel!
     private var labelCountry: UILabel!
     private var labelPrice: UILabel!
-    
-
+    private var textViewAbout: UITextView!
     
     private enum LabelType {
         case name
         case country
         case price
+        case about
         
         func size() -> CGFloat {
             switch self {
             case .name:
-                return 16
+                return 18
             case .country:
-                return 12
+                return 20
             case .price:
-                return 12
+                return 20
+            case .about:
+                return 8
+            }
+        }
+        
+        func textAlignment() -> NSTextAlignment {
+            switch self {
+            case .name:
+                return .center
+            case .price:
+                return .left
+            case .country:
+                return .left
+            case .about:
+                return .left
             }
         }
     }
@@ -51,8 +66,24 @@ class MedicalProductCardView: UIView {
         addSubview(labelCountry)
         labelPrice = setupLabel(labelType: .price, text: (viewModel?.medicalProduct.price)!)
         addSubview(labelPrice)
+        textViewAbout = setupTextView(labelType: .about, text: (viewModel?.medicalProduct.about)!)
+        addSubview(textViewAbout)
         setupConstraints()
-        backgroundColor = .red
+        backgroundColor = .white
+        
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(edit)))
+    }
+    
+    @objc private func edit(_ sender: UITapGestureRecognizer) {
+        viewModel?.edit()
+    }
+    
+    private func setupTextView(labelType: LabelType, text: String) -> UITextView {
+        let textView = UITextView()
+        textView.textAlignment = labelType.textAlignment()
+        textView.text = text
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
     }
     
     private func setupImageView() -> UIImageView {
@@ -67,6 +98,7 @@ class MedicalProductCardView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: labelType.size() )
         label.text = text
+        label.textAlignment = labelType.textAlignment()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
@@ -88,6 +120,12 @@ class MedicalProductCardView: UIView {
         labelPrice.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8).isActive = true
         labelPrice.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
         labelPrice.topAnchor.constraint(equalTo: labelCountry.bottomAnchor, constant: 8).isActive = true
+        
+        textViewAbout.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8).isActive = true
+        textViewAbout.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+        textViewAbout.topAnchor.constraint(equalTo: labelPrice.bottomAnchor, constant: 8).isActive = true
+        textViewAbout.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+        //textViewAbout.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/2, constant: -8).isActive = true
     }
     
     

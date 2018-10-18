@@ -28,19 +28,22 @@ class MedicalProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
         scrollView = createScrollView()
-        view.addSubview(scrollView)
-        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        
         setupNavigationBar()
     }
     
     private func createScrollView() -> UIScrollView {
         let scrollView = UIScrollView()
+        view.addSubview(scrollView)
         scrollView.backgroundColor = .gray
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         for (index, card) in medicalProductCards.enumerated() {
             card.translatesAutoresizingMaskIntoConstraints = false
@@ -50,23 +53,18 @@ class MedicalProductViewController: UIViewController {
         return scrollView
     }
     
-    private func setupConstraintsForIndex(card: MedicalProductCardView, index: Int, isNew: Bool = false) {
-        card.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+    private func setupConstraintsForIndex(card: MedicalProductCardView, index: Int) {
+        let countOfCards = medicalProductCards.count
+        let contentSize = CGSize(width: view.bounds.width, height: CGFloat(Float(countOfCards) / 3.0) * view.bounds.height + CGFloat(8 * (countOfCards - 1)))
+        scrollView.contentSize = contentSize
+        card.leadingAnchor.constraint(equalTo:  scrollView.leadingAnchor).isActive = true
         card.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
         card.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        card.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 1/3).isActive = true
+        card.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/3).isActive = true
         if index == 0 {
             card.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         } else {
-            card.topAnchor.constraint(equalTo: medicalProductCards[index - 1].bottomAnchor, constant: 8).isActive = true
-        }
-        if isNew && medicalProductCards.count - 1 > 0 {
-            medicalProductCards[index - 1].bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = false
-            medicalProductCards[index - 1].bottomAnchor.constraint(equalTo: card.topAnchor, constant: -8).isActive = true
-        }
-        if index == medicalProductCards.count - 1 {
-            //not ok
-            card.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+            card.topAnchor.constraint(equalTo: medicalProductCards[index-1].bottomAnchor, constant: 8).isActive = true
         }
     }
     
@@ -87,14 +85,16 @@ class MedicalProductViewController: UIViewController {
         medicalProductCard.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(medicalProductCard)
         medicalProductCards.append(medicalProductCard)
-        setupConstraintsForIndex(card: medicalProductCard, index: medicalProductCards.count - 1, isNew: true)
+        setupConstraintsForIndex(card: medicalProductCard, index: medicalProductCards.count - 1)
     }
     
     @objc private func showCureCreator(_ sender: UIBarButtonItem) {
     
         sender.isEnabled = false
-        cureAlertView = viewModel?.createAlertView(addButton: sender, yCoordinate: -view.bounds.maxY, addMedProd: { [weak self] (result) in
-            let medicalProductCard = MedicalProductCardView(viewModel: MedicalProductCardViewModelImp(medicalProduct: result.last))
+        cureAlertView = viewModel?.createAlertView(view: scrollView, addButton: sender, yCoordinate: -view.bounds.maxY, addMedProd: { [weak self] (result) in
+            let medicalProductCard = MedicalProductCardView(viewModel: MedicalProductCardViewModelImp(medicalProduct: result.last, edit: { [weak self] in
+                self?.showCureCreator(sender)
+            }))
             self?.addCardToView(medicalProductCard)
         })
         
@@ -113,9 +113,11 @@ class MedicalProductViewController: UIViewController {
         
         cureAlertView.transform = CGAffineTransform(translationX: 0, y: -view.bounds.maxY)
         cureAlertView.alpha = 0
+        scrollView.alpha = 1
         UIView.animate(withDuration: 1, animations: {[weak self] in
             self?.cureAlertView.alpha = 1
             self?.cureAlertView.transform = CGAffineTransform(translationX: 0, y: 0)
+            self?.scrollView.alpha = 0.5
         })
         
     }

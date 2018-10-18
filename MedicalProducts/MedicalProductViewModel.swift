@@ -11,7 +11,9 @@ import UIKit
 protocol MedicalProductViewModel {
     var placeholderText: String { get }
     var simptom: Symptom { get }
-    func createAlertView(addButton: UIBarButtonItem, yCoordinate: CGFloat, addMedProd: @escaping (Symptom) -> Void) -> AddCureAlertView
+    func createAlertView(view: UIScrollView, addButton: UIBarButtonItem, yCoordinate: CGFloat, addMedProd: @escaping (Symptom) -> Void) -> AddCureAlertView
+    func countOfMedicalProducts() -> Int
+    func arrayOfMedicalProducts() -> [MedicalProduct]
 }
 
 class MedicalProductViewModelImp: MedicalProductViewModel {
@@ -25,7 +27,16 @@ class MedicalProductViewModelImp: MedicalProductViewModel {
         self.simptom = simptom
     }
     
-    func createAlertView(addButton: UIBarButtonItem, yCoordinate: CGFloat, addMedProd: @escaping (Symptom) -> Void) -> AddCureAlertView {
-        return router.createAlertView(addButton: addButton, simptom: simptom, yCoordinate: yCoordinate, addMedProd: addMedProd)
+    func createAlertView(view: UIScrollView, addButton: UIBarButtonItem, yCoordinate: CGFloat, addMedProd: @escaping (Symptom) -> Void) -> AddCureAlertView {
+        return router.createAlertView(view: view, addButton: addButton, simptom: simptom, yCoordinate: yCoordinate, addMedProd: addMedProd)
     }
+    
+    func countOfMedicalProducts() -> Int {
+        return simptom.countOfMedicalProduct
+    }
+    
+    func arrayOfMedicalProducts() -> [MedicalProduct] {
+        return simptom.arrayOfMedicalProducts()
+    }
+    
 }

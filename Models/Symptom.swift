@@ -36,4 +36,7 @@ class Symptom {
         return medicalProducts[index]
     }
     
+    func arrayOfMedicalProducts() -> [MedicalProduct] {
+        return medicalProducts
+    }
 }

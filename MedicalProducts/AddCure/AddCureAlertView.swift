@@ -13,6 +13,7 @@ class AddCureAlertView: UIView {
     private enum ButtonType {
         case cancel
         case save
+        case edit
         
         func title() -> String {
             switch self {
@@ -20,6 +21,8 @@ class AddCureAlertView: UIView {
                 return "Cancel"
             case .save:
                 return "Save"
+            case .edit:
+                return "Edit"
             }
         }
     }
@@ -27,19 +30,23 @@ class AddCureAlertView: UIView {
     var viewModel: AddCuerAlertModel?
     private var cancelButton: UIButton!
     private var addCureButton: UIButton!
+    private var editButton: UIButton!
     private var textFieldCountry: UITextField!
     private var textFieldPrice: UITextField!
     private var textViewAbout: UITextView!
     private var textFieldName: UITextField!
     private var photoImage: UIImageView!
+    private var editFlag: Bool
     
-    init(viewModel: AddCuerAlertModel) {
+    init(viewModel: AddCuerAlertModel, editFlag: Bool) {
         self.viewModel = viewModel
+        self.editFlag = editFlag
         super.init(frame: CGRect.zero)
         setupView()
     }
     
-    init() {
+    init(editFlag: Bool) {
+        self.editFlag = editFlag
         super.init(frame: CGRect.zero)
     }
     
@@ -59,8 +66,13 @@ class AddCureAlertView: UIView {
     func setupView() {
         cancelButton = setupButton(buttonType: ButtonType.cancel)
         addSubview(cancelButton)
-        addCureButton = setupButton(buttonType: ButtonType.save)
-        addSubview(addCureButton)
+        if editFlag {
+            editButton = setupButton(buttonType: ButtonType.edit)
+            addSubview(editButton)
+        } else {
+            addCureButton = setupButton(buttonType: ButtonType.save)
+            addSubview(addCureButton)
+        }
         textFieldName = setupTextFieldName()
         addSubview(textFieldName)
         textFieldCountry = setupTextField(placeholder: "Country")
@@ -83,8 +95,8 @@ class AddCureAlertView: UIView {
         switch buttonType {
         case .cancel: button.addTarget(self, action: #selector(cancel), for: UIControlEvents.touchUpInside)
         case .save: button.addTarget(self, action: #selector(save), for: UIControlEvents.touchUpInside)
+        case .edit: button.addTarget(self, action: #selector(edit), for: UIControlEvents.touchUpInside)
         }
-        
         return button
     }
     
@@ -176,6 +188,10 @@ class AddCureAlertView: UIView {
         addCureButton.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         addCureButton.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         addCureButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/2, constant: -1).isActive = true
+    }
+    
+    @objc private func edit(_ sender: UIButton) {
+        
     }
     
     @objc private func save(_ sender: UIButton) {
