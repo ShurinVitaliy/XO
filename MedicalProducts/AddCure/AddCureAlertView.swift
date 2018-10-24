@@ -8,45 +8,41 @@
 
 import UIKit
 
-class AddCureAlertView: UIView {
+enum ButtonType {
+    case cancel
+    case save
+    case edit
     
-    private enum ButtonType {
-        case cancel
-        case save
-        case edit
-        
-        func title() -> String {
-            switch self {
-            case .cancel:
-                return "Cancel"
-            case .save:
-                return "Save"
-            case .edit:
-                return "Edit"
-            }
+    func title() -> String {
+        switch self {
+        case .cancel:
+            return "Cancel"
+        case .save:
+            return "Save"
+        case .edit:
+            return "Edit"
         }
     }
+}
+
+class AddCureAlertView: UIView {
     
     var viewModel: AddCuerAlertModel?
     private var cancelButton: UIButton!
     private var addCureButton: UIButton!
-    private var editButton: UIButton!
     private var textFieldCountry: UITextField!
     private var textFieldPrice: UITextField!
     private var textViewAbout: UITextView!
     private var textFieldName: UITextField!
     private var photoImage: UIImageView!
-    private var editFlag: Bool
     
-    init(viewModel: AddCuerAlertModel, editFlag: Bool) {
+    init(viewModel: AddCuerAlertModel) {
         self.viewModel = viewModel
-        self.editFlag = editFlag
         super.init(frame: CGRect.zero)
         setupView()
     }
     
-    init(editFlag: Bool) {
-        self.editFlag = editFlag
+    init() {
         super.init(frame: CGRect.zero)
     }
     
@@ -66,13 +62,8 @@ class AddCureAlertView: UIView {
     func setupView() {
         cancelButton = setupButton(buttonType: ButtonType.cancel)
         addSubview(cancelButton)
-        if editFlag {
-            editButton = setupButton(buttonType: ButtonType.edit)
-            addSubview(editButton)
-        } else {
-            addCureButton = setupButton(buttonType: ButtonType.save)
-            addSubview(addCureButton)
-        }
+        addCureButton = setupButton(buttonType: (viewModel?.buttonType)!)
+        addSubview(addCureButton)
         textFieldName = setupTextFieldName()
         addSubview(textFieldName)
         textFieldCountry = setupTextField(placeholder: "Country")
@@ -191,7 +182,7 @@ class AddCureAlertView: UIView {
     }
     
     @objc private func edit(_ sender: UIButton) {
-        
+        print("edit")
     }
     
     @objc private func save(_ sender: UIButton) {
@@ -200,7 +191,7 @@ class AddCureAlertView: UIView {
         } else {
             viewModel?.alertWarning()
         }
-        
+        print("save")
     }
     
     @objc private func cancel(_ sender: UIButton) {

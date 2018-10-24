@@ -11,7 +11,7 @@ import UIKit
 
 protocol AddCuerAlertModel {
     var simptom: Symptom { get }
-    var medicalProduct: MedicalProduct { get set }
+    var medicalProduct: MedicalProduct { get }
     var cancel: () -> Void { get }
     var save: (Symptom) -> Void { get }
     var edit: (MedicalProduct) -> Void { get }
@@ -19,6 +19,7 @@ protocol AddCuerAlertModel {
     func pickImage(imagePickerController: UIImagePickerController) -> Void
     func createNewMedicalProduct(photo: UIImage, name: String, country: String, price: String?, about: String?) -> Void
     func editMedicalProduct(photo: UIImage, name: String, country: String, price: String?, about: String?) -> Void
+    var buttonType: ButtonType { get }
 }
 
 class AddCuerAlertModelImp: AddCuerAlertModel {
@@ -31,7 +32,14 @@ class AddCuerAlertModelImp: AddCuerAlertModel {
     let save: (Symptom) -> Void
     let edit: (MedicalProduct) -> Void
     var medicalProduct: MedicalProduct
-    
+    var buttonType: ButtonType {
+        switch medicalProduct.mode {
+        case .edit:
+            return ButtonType.edit
+        case .add:
+            return ButtonType.save
+        }
+    }
     init(router: AddCureAlertViewRouter, simptom: Symptom, medicalProduct: MedicalProduct, cancel: @escaping () -> Void, save: @escaping(Symptom) -> Void, edit: @escaping(MedicalProduct) -> Void) {
         self.simptom = simptom
         self.cancel = cancel
@@ -56,7 +64,7 @@ class AddCuerAlertModelImp: AddCuerAlertModel {
     }
     
     func editMedicalProduct(photo: UIImage, name: String, country: String, price: String?, about: String?) {
-        medicalProduct.photo = photo
+        
         
     }
 }
