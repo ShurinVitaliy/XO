@@ -71,11 +71,6 @@ class MedicalProductCardView: UIView {
         setupConstraints()
         backgroundColor = .white
         
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(edit)))
-    }
-    
-    @objc private func edit(_ sender: UITapGestureRecognizer) {
-        viewModel?.edit()
     }
     
     private func setupTextView(labelType: LabelType, text: String) -> UITextView {

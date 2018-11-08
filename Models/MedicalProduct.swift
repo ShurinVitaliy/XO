@@ -10,17 +10,11 @@ import UIKit
 
 class MedicalProduct {
     
-    enum Mode {
-        case edit
-        case add
-    }
-    
     private(set) var photo: UIImage
     private(set) var name: String
     private(set) var country: String
     private(set) var price: String?
     private(set) var about: String?
-    private(set) var mode: Mode = .add
     
     init(photo: UIImage, name: String, country: String, price: String?, about: String?) {
         self.photo = photo
@@ -28,7 +22,6 @@ class MedicalProduct {
         self.country = country
         self.price = price
         self.about = about
-        self.mode = .edit
     }
     
     func editMedicalProduct(medicalProduct: MedicalProduct) {

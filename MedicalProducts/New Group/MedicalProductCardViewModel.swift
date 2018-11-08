@@ -10,16 +10,14 @@ import UIKit
 
 protocol MedicalProductCardViewModel {
     var medicalProduct: MedicalProduct { get }
-    var edit: () -> Void { get }
+    
 }
 
 class MedicalProductCardViewModelImp: MedicalProductCardViewModel {
     
-    var edit: () -> Void
     let medicalProduct: MedicalProduct
     
-    init(medicalProduct: MedicalProduct, edit: @escaping () -> Void) {
+    init(medicalProduct: MedicalProduct) {
         self.medicalProduct = medicalProduct
-        self.edit = edit
     }
 }

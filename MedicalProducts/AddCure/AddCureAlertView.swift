@@ -11,7 +11,6 @@ import UIKit
 enum ButtonType {
     case cancel
     case save
-    case edit
     
     func title() -> String {
         switch self {
@@ -19,8 +18,6 @@ enum ButtonType {
             return "Cancel"
         case .save:
             return "Save"
-        case .edit:
-            return "Edit"
         }
     }
 }
@@ -62,7 +59,7 @@ class AddCureAlertView: UIView {
     func setupView() {
         cancelButton = setupButton(buttonType: ButtonType.cancel)
         addSubview(cancelButton)
-        addCureButton = setupButton(buttonType: (viewModel?.buttonType)!)
+        addCureButton = setupButton(buttonType: ButtonType.save)
         addSubview(addCureButton)
         textFieldName = setupTextFieldName()
         addSubview(textFieldName)
@@ -86,7 +83,6 @@ class AddCureAlertView: UIView {
         switch buttonType {
         case .cancel: button.addTarget(self, action: #selector(cancel), for: UIControlEvents.touchUpInside)
         case .save: button.addTarget(self, action: #selector(save), for: UIControlEvents.touchUpInside)
-        case .edit: button.addTarget(self, action: #selector(edit), for: UIControlEvents.touchUpInside)
         }
         return button
     }

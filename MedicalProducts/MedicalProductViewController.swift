@@ -32,7 +32,7 @@ class MedicalProductViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         scrollView = createScrollView()
-        
+        loadMedicalCard()
         
         setupNavigationBar()
     }
@@ -55,6 +55,13 @@ class MedicalProductViewController: UIViewController {
         return scrollView
     }
     
+    private func loadMedicalCard() {
+        for medicalProduct in (viewModel?.arrayOfMedicalProducts())! {
+            let medicalProductCard = MedicalProductCardView(viewModel: MedicalProductCardViewModelImp(medicalProduct: medicalProduct))
+            addCardToView(medicalProductCard)
+        }
+    }
+    
     private func setupConstraintsForIndex(card: MedicalProductCardView, index: Int) {
         let countOfCards = medicalProductCards.count
         let contentSize = CGSize(width: view.bounds.width, height: CGFloat(Float(countOfCards) / 3.0) * view.bounds.height + CGFloat(8 * (countOfCards - 1)))
@@ -68,6 +75,7 @@ class MedicalProductViewController: UIViewController {
         } else {
             card.topAnchor.constraint(equalTo: medicalProductCards[index-1].bottomAnchor, constant: 8).isActive = true
         }
+        
     }
     
     private func setupNavigationBar() {
@@ -90,13 +98,15 @@ class MedicalProductViewController: UIViewController {
         setupConstraintsForIndex(card: medicalProductCard, index: medicalProductCards.count - 1)
     }
     
+    @objc private func editCard(_ sender: UITapGestureRecognizer) {
+        print("thisCode")
+    }
+    
     @objc private func showCureCreator(_ sender: UIBarButtonItem) {
     
         sender.isEnabled = false
         cureAlertView = viewModel?.createAlertView(view: scrollView, addButton: sender, yCoordinate: -view.bounds.maxY, addMedProd: { [weak self] (result) in
-            let medicalProductCard = MedicalProductCardView(viewModel: MedicalProductCardViewModelImp(medicalProduct: result.last, edit: { [weak self] in
-                self?.showCureCreator(sender)
-            }))
+            let medicalProductCard = MedicalProductCardView(viewModel: MedicalProductCardViewModelImp(medicalProduct: result.last))
             self?.addCardToView(medicalProductCard)
         })
         

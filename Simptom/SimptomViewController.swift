@@ -40,7 +40,7 @@ class SimptomViewController: UIViewController {
         return tableView
     }
     
-      private func setupNavigationBar() {
+    private func setupNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showCureCreator))
     }
     
