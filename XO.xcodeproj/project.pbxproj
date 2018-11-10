@@ -33,6 +33,8 @@
 		84C504A42194ACA6009E2C7F /* MedicalProductTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C504A32194ACA6009E2C7F /* MedicalProductTableViewModel.swift */; };
 		84C504A62194ACBA009E2C7F /* MedicalProductTableViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C504A52194ACBA009E2C7F /* MedicalProductTableViewRouter.swift */; };
 		84C504A82194ACD2009E2C7F /* MedicalProductTableViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C504A72194ACD2009E2C7F /* MedicalProductTableViewControllerAssembly.swift */; };
+		84C504AD219734D5009E2C7F /* MedicalProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C504AC219734D5009E2C7F /* MedicalProductTableViewCell.swift */; };
+		84C504AF21975550009E2C7F /* MedicalProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C504AE21975550009E2C7F /* MedicalProductTableViewCell.xib */; };
 		84FA107121692198002628A9 /* AddCureAlertViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA107021692198002628A9 /* AddCureAlertViewRouter.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,8 @@
 		84C504A32194ACA6009E2C7F /* MedicalProductTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProductTableViewModel.swift; sourceTree = "<group>"; };
 		84C504A52194ACBA009E2C7F /* MedicalProductTableViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProductTableViewRouter.swift; sourceTree = "<group>"; };
 		84C504A72194ACD2009E2C7F /* MedicalProductTableViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProductTableViewControllerAssembly.swift; sourceTree = "<group>"; };
+		84C504AC219734D5009E2C7F /* MedicalProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalProductTableViewCell.swift; sourceTree = "<group>"; };
+		84C504AE21975550009E2C7F /* MedicalProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicalProductTableViewCell.xib; sourceTree = "<group>"; };
 		84FA107021692198002628A9 /* AddCureAlertViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCureAlertViewRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,8 +152,8 @@
 		844BF5AD2097DE00001BE5F0 = {
 			isa = PBXGroup;
 			children = (
-				84C5049F21948D9C009E2C7F /* MedicalProductsTable */,
 				848A80E92125D209003785BE /* Models */,
+				84C5049F21948D9C009E2C7F /* MedicalProductsTable */,
 				84480FD22119FD1100FFC607 /* MedicalProducts */,
 				84480FC62118DD7700FFC607 /* Simptom */,
 				844BF5EA2097E817001BE5F0 /* Main */,
@@ -213,6 +217,7 @@
 		84C5049F21948D9C009E2C7F /* MedicalProductsTable */ = {
 			isa = PBXGroup;
 			children = (
+				84C504AB21973004009E2C7F /* MedicalProductCell */,
 				84C504A121948F4F009E2C7F /* MedicalProductTableViewController.swift */,
 				84C504A32194ACA6009E2C7F /* MedicalProductTableViewModel.swift */,
 				84C504A52194ACBA009E2C7F /* MedicalProductTableViewRouter.swift */,
@@ -220,6 +225,15 @@
 			);
 			name = MedicalProductsTable;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		84C504AB21973004009E2C7F /* MedicalProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				84C504AC219734D5009E2C7F /* MedicalProductTableViewCell.swift */,
+				84C504AE21975550009E2C7F /* MedicalProductTableViewCell.xib */,
+			);
+			path = MedicalProductCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				844BF5C42097DE02001BE5F0 /* Assets.xcassets in Resources */,
+				84C504AF21975550009E2C7F /* MedicalProductTableViewCell.xib in Resources */,
 				844BF5BF2097DE01001BE5F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84240C0421272A3E00D0FD19 /* MedicalProductCardView.swift in Sources */,
+				84C504AD219734D5009E2C7F /* MedicalProductTableViewCell.swift in Sources */,
 				844BF5F22097E8EE001BE5F0 /* MainViewControllerAssembly.swift in Sources */,
 				84480FCE2118DE2900FFC607 /* SimptomViewControllerAssembly.swift in Sources */,
 				84480FCA2118DDE300FFC607 /* SimptomViewModel.swift in Sources */,

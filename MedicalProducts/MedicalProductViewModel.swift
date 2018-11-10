@@ -11,9 +11,14 @@ import UIKit
 protocol MedicalProductViewModel {
     var placeholderText: String { get }
     var simptom: Symptom { get }
-    func createAlertView(view: UIScrollView, addButton: UIBarButtonItem, yCoordinate: CGFloat, addMedProd: @escaping (Symptom) -> Void) -> AddCureAlertView
+    func createAlertView(view: UIScrollView, yCoordinate: CGFloat, addMedProd: @escaping (Symptom) -> Void) -> AddCureAlertView
     func countOfMedicalProducts() -> Int
     func arrayOfMedicalProducts() -> [MedicalProduct]
+    var delegate: MedicalProductDelegate? { get set }
+}
+
+protocol MedicalProductDelegate: class {
+    func alertDidAppear()
 }
 
 class MedicalProductViewModelImp: MedicalProductViewModel {
@@ -21,14 +26,16 @@ class MedicalProductViewModelImp: MedicalProductViewModel {
     private let router: MedicalProductViewRouter
     let placeholderText: String = "Search"
     let simptom: Symptom
+    weak var delegate: MedicalProductDelegate?
     
     init(router: MedicalProductViewRouter, simptom: Symptom) {
         self.router = router
         self.simptom = simptom
     }
     
-    func createAlertView(view: UIScrollView, addButton: UIBarButtonItem, yCoordinate: CGFloat, addMedProd: @escaping (Symptom) -> Void) -> AddCureAlertView {
-        return router.createAlertView(view: view, addButton: addButton, simptom: simptom, yCoordinate: yCoordinate, addMedProd: addMedProd)
+    func createAlertView(view: UIScrollView, yCoordinate: CGFloat, addMedProd: @escaping (Symptom) -> Void) -> AddCureAlertView {
+        delegate?.alertDidAppear()
+        return router.createAlertView(view: view, simptom: simptom, yCoordinate: yCoordinate, addMedProd: addMedProd)
     }
     
     func countOfMedicalProducts() -> Int {

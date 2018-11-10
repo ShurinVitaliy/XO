@@ -6,4 +6,15 @@
 //  Copyright © 2018 Admin. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+
+class MedicalProductTableViewControllerAssembly {
+    func createTablewViewController(navigationController: UINavigationController, symptom: Symptom) -> UITableViewController {
+        let router = MedicalProductTableViewRouter(navigationController: navigationController)
+        let model = MedicalProductTableViewModelImp(router: router, symptom: symptom)
+        let controller = MedicalProductTableViewController(viewModel: model)
+        return controller
+    }
+}
+

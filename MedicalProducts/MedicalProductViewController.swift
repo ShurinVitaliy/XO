@@ -33,8 +33,8 @@ class MedicalProductViewController: UIViewController {
         view.backgroundColor = .black
         scrollView = createScrollView()
         loadMedicalCard()
-        
         setupNavigationBar()
+        viewModel?.delegate = self
     }
     
     private func createScrollView() -> UIScrollView {
@@ -105,9 +105,10 @@ class MedicalProductViewController: UIViewController {
     @objc private func showCureCreator(_ sender: UIBarButtonItem) {
     
         sender.isEnabled = false
-        cureAlertView = viewModel?.createAlertView(view: scrollView, addButton: sender, yCoordinate: -view.bounds.maxY, addMedProd: { [weak self] (result) in
+        cureAlertView = viewModel?.createAlertView(view: scrollView, yCoordinate: -view.bounds.maxY, addMedProd: { [weak self] (result) in
             let medicalProductCard = MedicalProductCardView(viewModel: MedicalProductCardViewModelImp(medicalProduct: result.last))
             self?.addCardToView(medicalProductCard)
+            self?.navigationItem.rightBarButtonItem?.isEnabled = true
         })
         
         cureAlertView.backgroundColor = UIColor(named: "LightGrayCustom")
@@ -138,4 +139,10 @@ class MedicalProductViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+extension MedicalProductViewController: MedicalProductDelegate {
+    func alertDidAppear() {
+        navigationItem.rightBarButtonItem?.isEnabled = false
+    }
 }
