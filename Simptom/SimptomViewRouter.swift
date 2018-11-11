@@ -16,8 +16,8 @@ class SimptomViewRouter {
     }
     
     func showMedicalProductOfSymptoms(symptom: Symptom) {
-        let assembly = MedicalProductViewControllerAssembly()
-        let controller = assembly.createController(navigationController: navigationController, symptom: symptom)
+        let assembly = MedicalProductTableViewControllerAssembly()
+        let controller = assembly.createTablewViewController(navigationController: navigationController, symptom: symptom)
         navigationController.pushViewController(controller, animated: true)
     }
     

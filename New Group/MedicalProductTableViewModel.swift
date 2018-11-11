@@ -10,10 +10,11 @@ import Foundation
 
 protocol MedicalProductTableViewModel {
     var simptom: Symptom { get }
+    func addNewMedicalProduct() -> Void
 }
 
 class MedicalProductTableViewModelImp: MedicalProductTableViewModel{
-    
+
     private let router: MedicalProductTableViewRouter
     let simptom: Symptom
     
@@ -21,5 +22,10 @@ class MedicalProductTableViewModelImp: MedicalProductTableViewModel{
         self.router = router
         self.simptom = symptom
     }
+    
+    func addNewMedicalProduct() {
+        
+    }
+    
     
 }

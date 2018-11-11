@@ -14,4 +14,8 @@ class MedicalProductTableViewRouter {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
+    
+    func addNewMedicalProduct(symptom: Symptom) {
+        
+    }
 }

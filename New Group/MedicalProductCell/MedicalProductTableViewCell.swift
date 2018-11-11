@@ -12,7 +12,7 @@ import Foundation
 class MedicalProductTableViewCell: UITableViewCell {
     
     
-    func updateWithModel() {
+    func updateWithModel(medicalProduct: MedicalProduct) {
         
     }
 }

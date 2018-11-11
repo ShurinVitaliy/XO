@@ -49,7 +49,6 @@ class AddCureAlertView: UIView {
         var mask = CAShapeLayer()
         mask.path = path.cgPath
         cancelButton.layer.mask = mask
-        
         path = UIBezierPath(roundedRect: cancelButton.bounds, byRoundingCorners: [.bottomRight], cornerRadii: CGSize(width: layer.cornerRadius, height: layer.cornerRadius))
         mask = CAShapeLayer()
         mask.path = path.cgPath
