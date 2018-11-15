@@ -10,7 +10,6 @@ import UIKit
 
 class MedicalProductTableViewController: UITableViewController {
     private var viewModel: MedicalProductTableViewModel?
-    private var viewForAdd: AddNewMedicalProductView!
     
     convenience init(viewModel: MedicalProductTableViewModel) {
         self.init(nibName: nil, bundle: nil)
@@ -39,15 +38,16 @@ class MedicalProductTableViewController: UITableViewController {
     }
     
     func createNavigationBarButtonItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewMedicalProduct))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openMedicalProductCreater))
     }
     
-    @objc private func addNewMedicalProduct(_ sender: UIBarButtonItem) {
-        print("dsd")
-        viewForAdd = AddNewMedicalProductView()
-        
-        tableView.addSubview(viewForAdd)
-        viewForAdd.frame = tableView.bounds
+    @objc private func openMedicalProductCreater(_ sender: UIBarButtonItem) {
+        print("add")
+        viewModel?.addNewMedicalProduct()
+    }
+    @objc private func addNewMedicalProduct(_ sender: UIButton) {
+        print("add")
+        viewModel?.addNewMedicalProduct()
     }
     
     

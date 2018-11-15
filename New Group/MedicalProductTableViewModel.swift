@@ -24,7 +24,7 @@ class MedicalProductTableViewModelImp: MedicalProductTableViewModel{
     }
     
     func addNewMedicalProduct() {
-        
+        router.addNewMedicalProduct(symptom: simptom)
     }
     
     

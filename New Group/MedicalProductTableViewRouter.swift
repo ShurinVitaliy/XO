@@ -16,6 +16,8 @@ class MedicalProductTableViewRouter {
     }
     
     func addNewMedicalProduct(symptom: Symptom) {
+        let controller = AddNewMedicalProductViewControllerAssembly().createController(navigationController: navigationController, symptom: symptom)
+        navigationController.present(controller, animated: true, completion: nil)
         
     }
 }
